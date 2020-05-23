@@ -89,11 +89,12 @@ if (source && dest) {
         if (err)
           unable2(`parse ${source} code`, err);
         const save = err => {
+          const js = dest.replace(/\.mjs$/, '.js');
           if (err)
-            unable2(`mark ${dest} as CommonJS`, err);
-          writeFile(dest, fixMeta(result.code), err => {
+            unable2(`mark ${js} as CommonJS`, err);
+          writeFile(js, fixMeta(result.code), err => {
             if (err)
-              unable2(`write on ${dest} file`, err);
+              unable2(`write on ${js} file`, err);
           });
         };
         const destDir = dirname(dest);
@@ -103,7 +104,7 @@ if (source && dest) {
           created.add(destDir);
           mkdir(destDir, {recursive: true}, err => {
             if (err)
-              unable2(`create ${dest} folder`, err);
+              unable2(`create ${destDir} folder`, err);
             const pkg = join(destDir, 'package.json');
             stat(pkg, err => {
               if (err)
