@@ -3,7 +3,7 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "description": "A minimalist ESM to CJS transformer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "commonjs",
   "bin": {
     "ucjs": "ucjs.js"
