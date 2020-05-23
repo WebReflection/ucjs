@@ -6,6 +6,4 @@ console.log(import.meta.url);
 
 import('test').then(console.log);
 
-async function test(value) {
-  return import(value);
-}
+async function test(value) { return import(value); }
